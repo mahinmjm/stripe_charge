@@ -1,0 +1,9 @@
+{
+    "name": "mahinjm/stripe_connect_split",
+    "description": "stripe split payment transfer",
+    "type": "project",
+    "require": {
+        "stripe/stripe-php": "^2.0@dev"
+    },
+    "minimum-stability": "dev"
+}
