@@ -21,26 +21,34 @@
       <h2 class="text-center">Stripe Charge</h2>
       <br><br>
 
-      <form action="inc/functions.php" method="POST" role="form">
+      <h2>Payment success !</h2>
 
-        <div class="form-group">
-          <label for="">Amount</label>
-          <input type="text" class="form-control" id="" name="amount">
-        </div>
+      <h4>Information:</h4>
+      <p>Charge ID: <?php echo $charge['id']; ?> </p>
+      <p>Transaction ID: <?php echo $charge['balance_transaction']; ?> </p>
+      <br>
+      <br>
 
-        <div class="form-group">
-          <label for="">Driver Stripe Connect ID</label>
-          <input type="text" class="form-control" id="" name="connect_id" placeholder="Ex: acct_1CzHhIDKSfSO1T37">
-        </div>
-
-        <div class="form-group">
-          <label for="">Fees (in %)</label>
-          <input type="text" class="form-control" id="" name="fee">
-        </div>
-   
+      <p>Date: <?php echo date('d-m-Y', $charge['created']); ?> </p>
+      <p>Order No: <?php echo $charge['order']; ?> </p>
+      <p>Invoice No: <?php echo $charge['invoice']; ?> </p>
+      <p>Amount: <?php echo $charge['amount']/10; echo " ".$charge['currency']; ?> </p>
+      <p>Fees: <?php echo $fee/10; echo " ".$charge['currency']; ?> </p>
+      <br>
+      <br>
       
-        <button type="submit" class="btn btn-primary" name="submit">Transfer</button>
-      </form>
+      <p>Customer Name: <?php echo $charge['customer']; ?> </p>
+      <p>Customer Stripe Connect ID: <?php echo $_POST['connect_id']; ?> </p>
+      <p>Reciept Email: <?php echo $charge['receipt_email']; ?> </p>
+      <p>Reciept Number: <?php echo $charge['receipt_number']; ?> </p>
+      <p>Description: <?php echo $charge['description']; ?> </p>
+
+      <br>
+      <p>Card No (Last 4 digits): <?php echo $charge['source']['last4']; ?> </p>
+      <p>Card Name: <?php echo $charge['source']['customer']; ?> </p>
+
+		<br><br><br>
+		<a href="../" class="btn btn-primary">Back</a>
     </div>
 
     <!-- jQuery -->
