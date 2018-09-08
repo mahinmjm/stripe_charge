@@ -48,6 +48,47 @@
     <!-- Bootstrap JavaScript -->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+<script>
+//   var HttpClient = function() {
+//     this.get = function(aUrl, aCallback) {
+//         var anHttpRequest = new XMLHttpRequest();
+//         anHttpRequest.onreadystatechange = function() { 
+//             if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+//                 aCallback(anHttpRequest.responseText);
+//         }
 
+//         anHttpRequest.open( "GET", aUrl, true );            
+//         anHttpRequest.send( null );
+//     }
+// }
+// var client = new HttpClient();
+// client.get('https://api.ordering.co/sys/data/order/townarounddines/list?businessId=58&token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOjEsImxldmVsIjowfQ.d804niMKfe8xei2sZ-jyn5LC4yUhA0Je65MXa4NAqik', function(response) {
+//     // do something with response
+//     console.log(response);
+// });
+
+
+</script>
+
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+axios.get('https://api.ordering.co/sys/data/order/townarounddines/list?businessId=58&token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ1aWQiOjEsImxldmVsIjowfQ.d804niMKfe8xei2sZ-jyn5LC4yUhA0Je65MXa4NAqik')
+        .then(function (response) {
+            // handle success
+            if(response && response.data ){
+                // return res.status(200).json({ data: response.data });
+              console.log(response);
+             
+              axios.post('inc/process.php',  JSON.stringify(response.data))
+                .then(function(res){
+                  console.log(res);
+                })
+
+            }
+
+          });
+
+
+</script>
   </body>
 </html>
