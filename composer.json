@@ -3,7 +3,8 @@
     "description": "stripe split payment transfer",
     "type": "project",
     "require": {
-        "stripe/stripe-php": "^2.0@dev"
+        "stripe/stripe-php": "^2.0@dev",
+        "illuminate/database": "^5.7.2"
     },
     "minimum-stability": "dev"
 }
