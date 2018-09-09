@@ -19,13 +19,21 @@ class Language extends Illuminate\Database\Eloquent\Model {
     protected $table = 'language';
     protected $fillable = ['id', 'title', 'short_code', 'enabled', 'default_lang'];
 }
+
 class Order extends Illuminate\Database\Eloquent\Model {
     protected $table = 'orders';
-    protected $fillable = ['driver_id', 'ordering_id', 'business_id', 'status_id', 'total', 'date', 'order_data', 'json_data'];
+    protected $fillable = ['driver_id', 'ordering_id', 'business_id', 'stripe_result', 'status_id', 'total', 'date', 'order_data', 'json_data'];
+}
+
+class Cron extends Illuminate\Database\Eloquent\Model {
+    protected $table = 'crons';
+    protected $fillable = ['ordering_id', 'driver_id', 'date', 'status_id', 'business_id', 'total', 'discount', 'stripe_result'];
 }
 
 
 $capsule = new Capsule;
+
+
 
 $capsule->addConnection([
     'driver'    => 'mysql',

@@ -2,6 +2,9 @@
 
 require_once('./db_conn.php');
 
+use Illuminate\Database\Capsule\Manager as DB;
+
+
 $data = json_decode(file_get_contents("php://input"), true);
 
 // Retrieve and Save business Data
@@ -60,10 +63,13 @@ $data = json_decode(file_get_contents("php://input"), true);
 }*/
 
 // Find and Match With Existing Order from Recent Order
+$orderIds = array();
 foreach ($data as $key => $value){
-//    $foundOrder = Order::where('ordering_id', $value['order_number'])->get();
+    $orderIds[] = $value['order_number'];
 }
 
-echo 'done';
-//print_r($data);
+$existingOrdersIds = DB::table('orders')->whereIn('ordering_id', $orderIds)->pluck('ordering_id')->toArray();
+
+$oIds = array_diff($orderIds, $existingOrdersIds);
+echo json_encode(array_values($oIds));
 
