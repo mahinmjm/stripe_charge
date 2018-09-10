@@ -22,6 +22,7 @@
 <!-- jQuery -->
 <script src="//code.jquery.com/jquery.js"></script>
 <script src="./assets/js/async.js"></script>
+<script src="./assets/js/cross.js"></script>
 <!-- Bootstrap JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
 
@@ -115,9 +116,9 @@
                          }, function(err) {
                              // if any of the file processing produced an error, err would equal that error
                              if( err ) {
-                                 console.log('A file failed to process');
+                                 console.log('A data failed to process');
                              } else {
-                                 console.log('All files have been processed successfully');
+                                 console.log('All data have been processed successfully');
                              }
                          });
                      }
